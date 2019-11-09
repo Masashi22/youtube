@@ -1,4 +1,9 @@
 <h1>検索サイト</h1>
 <p>入力すると、WikipediaとYoutubeでの検索結果が出ます</p>
+<%= form_tag({ :controller => 'base', :action => "home"}, {:method => :get}) do %>
+  <%= text_field_tag :keyword %>
+  <%= submit_tag '検索' %>
+<% end %>
+
 <p>タイトル：<%= @wiki.title %></p>
 <p>要約：<%= @wiki.summary %></p>
