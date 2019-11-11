@@ -1,16 +1,18 @@
 <h1>検索サイト</h1>
-<p>入力すると、WikipediaとYoutubeでの検索結果が出ます</p>
-<%= form_tag({ :controller => 'base', :action => "home"}, {:method => :get}) do %>
-  <%= text_field_tag :keyword %>
-  <%= submit_tag '検索' %>
-<% end %>
-<h2>Wikipedia</h2>
+<div class="search">
+  <p>入力すると、WikipediaとYoutubeでの検索結果が出ます</p>
+  <%= form_tag({ :controller => 'base', :action => "home"}, {:method => :get}) do %>
+    <%= text_field_tag :keyword, '', class:"text-field" %>
+    <%= submit_tag('検索', class:"submit") %>
+  <% end %>
+</div>
 <div class="wikipedia">
+  <h2>Wikipedia</h2>
   <p>タイトル：<%= @wiki.title %></p>
   <p>要約：<%= @wiki.summary %></p>
 </div>
-<h2>Youtube</h2>
 <div class="youtube">
+  <h2>Youtube</h2>
   <% @youtube.items.each do |youtube| %>
     <% video = youtube.snippet %>
      <div>
