@@ -14,7 +14,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'wikipedia-client'
 gem 'rinku'
 gem 'google-api-client', '0.9.20', require: 'google/apis/youtube_v3'
-gem 'trollop'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
