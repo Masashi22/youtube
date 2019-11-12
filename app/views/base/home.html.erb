@@ -3,7 +3,7 @@
   <p>入力すると、WikipediaとYoutubeでの検索結果が出ます</p>
   <%= form_tag({ :controller => 'base', :action => "home"}, {:method => :get}) do %>
     <%= text_field_tag :keyword, '', class:"text-field" %>
-    <%= submit_tag('検索', class:"submit") %>
+    <%= submit_tag('検索',class:"submit",name: nil) %>
   <% end %>
 </div>
 <div class="wikipedia">
@@ -15,9 +15,9 @@
   <h2>Youtube</h2>
   <% @youtube.items.each do |youtube| %>
     <% video = youtube.snippet %>
-     <div>
+     <div class="video">
        <iframe width="600" height="400" src="https://www.youtube.com/embed/<%= youtube.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       <p><%= video.title %></p>
      </div>
-     <p><%= video.title %></p>
   <% end %>
 </div>

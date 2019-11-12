@@ -4,12 +4,12 @@ class BaseController < ApplicationController
 
   GOOGLE_API_KEY = Rails.application.credentials.youtube[:api]
   def home
-    if params[:keyword]
+    if params[:keyword].blank?
+      @wiki = Wikipedia.find("ハリーポッター")
+      @youtube = find_videos("ハリーポッター")
+    else
       @wiki = Wikipedia.find(params[:keyword])
       @youtube = find_videos(params[:keyword])
-    else
-      @wiki= Wikipedia.find(".")
-      @youtube = find_videos(".")
     end
   end
 
